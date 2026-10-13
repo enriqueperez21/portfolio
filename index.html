@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luis Enrique Pérez Señalin · Portafolio</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <meta name="description" content="Portafolio de Luis Enrique Pérez Señalin, ingeniero de software." />
+  <meta name="color-scheme" content="light dark" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <noscript>
+    <div class="noscript">Este portafolio necesita JavaScript para el cambio de idioma. / This portfolio needs JavaScript for language switching.</div>
+  </noscript>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">Luis Enrique Pérez</a>
+
+      <nav id="nav" class="nav" aria-label="Principal" data-i18n-attr="aria-label:nav.label">
+        <a href="#about"      data-i18n="nav.about">Perfil</a>
+        <a href="#experience" data-i18n="nav.experience">Experiencia</a>
+        <a href="#skills"     data-i18n="nav.skills">Habilidades</a>
+        <a href="#projects"   data-i18n="nav.projects">Proyectos</a>
+        <a href="#education"  data-i18n="nav.education">Formación</a>
+        <a href="#events"     data-i18n="nav.events">Eventos</a>
+        <a href="#contact"    data-i18n="nav.contact">Contacto</a>
+      </nav>
+
+      <div class="controls">
+        <!-- [H1][H3] Estado actual visible (aria-pressed) y reversible -->
+        <div class="seg" role="group" aria-label="Idioma" data-i18n-attr="aria-label:controls.lang">
+          <button type="button" data-lang="es" aria-pressed="true" title="Español">ES</button>
+          <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
+        </div>
+        <button id="themeBtn" class="btn icon small" type="button" aria-label="Cambiar tema" title="Cambiar tema (T)"
+                data-i18n-attr="aria-label:controls.theme;title:controls.themeTitle">◐</button>
+        <button id="helpBtn" class="btn icon small" type="button" aria-label="Ayuda" title="Ayuda (?)"
+                data-i18n-attr="aria-label:controls.help;title:controls.helpTitle">?</button>
+        <button id="menuBtn" class="btn icon small menu-btn" type="button" aria-expanded="false" aria-controls="nav"
+                aria-label="Menú" data-i18n-attr="aria-label:controls.menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="top" class="hero">
+      <div class="container">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Portafolio</p>
+        <h1>Luis Enrique Pérez Señalin</h1>
+        <p class="lead" data-i18n="hero.summary"></p>
+        <div class="cta-row">
+          <a class="btn primary" href="#experience" data-i18n="hero.ctaExp">Ver experiencia</a>
+          <a class="btn" href="#contact" data-i18n="hero.ctaContact">Contactarme</a>
+        </div>
+        <ul class="chips">
+          <li class="chip" data-i18n="hero.location">Quito, Ecuador</li>
+          <li class="chip" data-i18n="hero.study">Ing. en Ciencias de la Computación · EPN</li>
+          <li class="chip">Python · Java · AWS</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PERFIL -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title" data-i18n="about.title">Perfil</h2>
+        <p class="section-intro" data-i18n="about.intro"></p>
+        <div id="aboutCards" class="grid"></div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section id="experience" aria-labelledby="exp-title">
+      <div class="container">
+        <h2 id="exp-title" data-i18n="experience.title">Experiencia</h2>
+        <p class="section-intro" data-i18n="experience.intro"></p>
+
+        <!-- [H6][H7] Filtros visibles + expandir/contraer todo -->
+        <div class="filters" role="group" aria-label="Filtrar" data-i18n-attr="aria-label:experience.filterLabel" id="filters"></div>
+        <div class="filters" style="margin-top:0">
+          <button id="toggleAll" class="btn small" type="button" data-i18n="experience.expandAll">Expandir todo</button>
+          <span id="expStatus" class="status" role="status" aria-live="polite"></span>
+        </div>
+
+        <ol id="timeline" class="timeline"></ol>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <h2 id="skills-title" data-i18n="skills.title">Habilidades</h2>
+        <p class="section-intro" data-i18n="skills.intro"></p>
+        <div id="skillsGrid" class="grid"></div>
+        <h3 style="margin-top:28px" data-i18n="skills.certsTitle">Certificaciones</h3>
+        <ul id="certList" class="chips" style="margin-top:8px"></ul>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="projects" aria-labelledby="proj-title">
+      <div class="container">
+        <h2 id="proj-title" data-i18n="projects.title">Proyectos</h2>
+        <p class="section-intro" data-i18n="projects.intro"></p>
+        <ul id="projectList" class="plain-list"></ul>
+        <p style="margin-top:20px">
+          <a id="repoLink" class="btn" target="_blank" rel="noopener noreferrer">
+            <span data-i18n="projects.repoCta">Ver repositorio</span> ↗
+            <span class="sr-only" style="position:absolute;left:-9999px" data-i18n="opensNew">(se abre en una pestaña nueva)</span>
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- FORMACIÓN -->
+    <section id="education" aria-labelledby="edu-title">
+      <div class="container">
+        <h2 id="edu-title" data-i18n="education.title">Formación</h2>
+        <div class="card">
+          <h3 data-i18n="education.school">Escuela Politécnica Nacional</h3>
+          <p class="muted" style="margin:0" data-i18n="education.degree"></p>
+          <p class="muted" style="margin:0" data-i18n="education.status"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTOS -->
+    <section id="events" aria-labelledby="ev-title">
+      <div class="container">
+        <h2 id="ev-title" data-i18n="events.title">Participación en eventos</h2>
+        <ul id="eventList" class="plain-list"></ul>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title" data-i18n="contact.title">Contacto</h2>
+        <p class="section-intro" data-i18n="contact.intro"></p>
+        <div id="contactList" class="contact-list"></div>
+        <p class="muted" style="margin-top:16px" data-i18n="references.text"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span data-i18n="footer.updated">Actualizado: octubre 2026</span>
+      <a id="backTop" href="#top" data-i18n="footer.top">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <!-- [H1] Mensajes de estado -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- [H10] Ayuda y documentación -->
+  <dialog id="helpDialog" aria-labelledby="helpTitle">
+    <div class="dialog-head">
+      <h2 id="helpTitle" data-i18n="help.title">Ayuda</h2>
+      <button id="helpClose" class="btn small" type="button" data-i18n="help.close">Cerrar</button>
+    </div>
+    <div class="dialog-body">
+      <p data-i18n="help.intro"></p>
+      <ul class="kbd-list">
+        <li><kbd>L</kbd> <span data-i18n="help.kLang"></span></li>
+        <li><kbd>T</kbd> <span data-i18n="help.kTheme"></span></li>
+        <li><kbd>?</kbd> <span data-i18n="help.kHelp"></span></li>
+        <li><kbd>Esc</kbd> <span data-i18n="help.kEsc"></span></li>
+      </ul>
+      <p class="muted" data-i18n="help.tips"></p>
+    </div>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/i18next@23.16.8/i18next.min.js"></script>
+  <script src="./js/javascript.js"></script>
+
+  </body>
+</html>
